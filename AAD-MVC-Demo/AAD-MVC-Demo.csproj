@@ -5,6 +5,10 @@
     <RootNamespace>AAD_MVC_Demo</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.AzureAD.UI" Version="3.1.0" />
+  </ItemGroup>
+
 
 
 </Project>
