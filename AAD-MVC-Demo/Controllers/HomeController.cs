@@ -34,15 +34,6 @@ namespace AAD_MVC_Demo.Controllers
             return View();
         }
 
-        public IActionResult Logout()
-        {
-            HttpContext.GetOwinContext().Authentication.SignOut(
-                OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType
-                );
-            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie,
-            //                      DefaultAuthenticationTypes.ExternalCookie);
-        }
-
         [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
