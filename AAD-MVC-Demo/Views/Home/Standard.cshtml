@@ -1,0 +1,10 @@
+﻿@model IEnumerable<AAD_MVC_Demo.Models.BannedCardViewModel>
+
+@{
+    ViewData["Title"] = "Standard banned cards";
+}
+
+@foreach (var item in Model)
+{
+    <img style="width:223px;height:311px" src="@item.ImageUri" />
+}

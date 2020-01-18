@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AAD_MVC_Demo.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

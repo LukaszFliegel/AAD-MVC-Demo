@@ -25,6 +25,9 @@ namespace AAD_MVC_Demo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
+                .AddAzureAD((AzureADOptions options) => Configuration.Bind("AzureAd", options));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
