@@ -5,4 +5,11 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>@ViewBag.user</p>
+    <ul style="text-align:left">
+        @foreach (var claim in ViewBag.Claims)
+        {
+            <li>@claim.Type - @claim.Value</li>
+        }
+    </ul>
 </div>

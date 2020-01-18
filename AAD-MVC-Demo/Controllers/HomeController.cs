@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AAD_MVC_Demo.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Server.HttpSys;
 
 namespace AAD_MVC_Demo.Controllers
 {
@@ -22,6 +24,8 @@ namespace AAD_MVC_Demo.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.user = User.Identity.Name;
+            ViewBag.claims = User.Claims;
             return View();
         }
 
@@ -30,6 +34,16 @@ namespace AAD_MVC_Demo.Controllers
             return View();
         }
 
+        public IActionResult Logout()
+        {
+            HttpContext.GetOwinContext().Authentication.SignOut(
+                OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType
+                );
+            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie,
+            //                      DefaultAuthenticationTypes.ExternalCookie);
+        }
+
+        [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
